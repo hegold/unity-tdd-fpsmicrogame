@@ -22,6 +22,8 @@ Features to test:
   - collide with enemies and do damage
   - collide with geometry and are destroyed
   - visuals/vfx
+- Pickups
+  - Health
 - Enemies
 - Game flow
   - Start
