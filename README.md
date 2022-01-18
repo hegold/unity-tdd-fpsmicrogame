@@ -8,7 +8,8 @@ Features to test:
   - Jump
   - look/aim
   - Health
-  - Death
+  - Death from combat
+  - Death plane
 - weapon
   - equipped
   - fires projectiles
