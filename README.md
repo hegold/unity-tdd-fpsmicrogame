@@ -1,0 +1,42 @@
+# unity-tdd-fpsmicrogame
+
+Features to test:
+- Player
+  - Movement
+  - Collision
+  - Sprint
+  - Jump
+  - look/aim
+  - Health
+  - Death
+- weapon
+  - equipped
+  - fires projectiles
+  - uses ammo/energy
+  - continues to fire when button held
+  - cooldown
+  - visuals/animates/vfx
+- projectiles
+  - travel
+  - collide with enemies and do damage
+  - collide with geometry and are destroyed
+  - visuals/vfx
+- Enemies
+- Game flow
+  - Start
+  - End - win
+  - End - lose
+  - pause/options
+- Objective system
+- UI/HUD
+  - Compass
+  - Objective minimap
+  - Objective log
+- Options
+- Audio (throughout and ambient)
+- Meta
+  - Can complete level
+  - Looks right
+  - Perf
+  - Is fun
+  
