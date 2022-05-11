@@ -126,6 +126,7 @@ namespace Unity.FPS.Gameplay
 
                 m_SteamVfxEmissionModule.rateOverTimeMultiplier = SteamVfxEmissionRateMax * (1f - currentAmmoRatio);
             }
+            m_LastAmmoRatio = currentAmmoRatio;
 
             // cooling sound
             if (CoolingCellsSound)
@@ -147,7 +148,6 @@ namespace Unity.FPS.Gameplay
                 m_AudioSource.volume = AmmoToVolumeRatioCurve.Evaluate(1 - currentAmmoRatio);
             }
 
-            m_LastAmmoRatio = currentAmmoRatio;
         }
     }
 }
