@@ -76,14 +76,14 @@ namespace Unity.FPS.Gameplay
 
             m_AmmoRatioChangeTracker = new ValueChangeTracker<float>(
                 () => m_Weapon.CurrentAmmoRatio,
-                newAmmoRatio => Debug.LogFormat("Ammo ratio changed to: {0}", newAmmoRatio)
+                newAmmoRatio => UpdateVisualSmoke(newAmmoRatio)
             );
     }
 
         public class ValueChangeTracker<T> where T : IEquatable<T>
         {
+            // Note: could pass the new value to Update vs having a query, then it's even simpler but more code at call site
             private readonly Func<T> QueryCurrentValue;
-            //private readonly Comparer<T> ValueChangeComparer;
             private readonly Action<T> OnChangeAction;
             private T LastValue;
 
@@ -91,7 +91,6 @@ namespace Unity.FPS.Gameplay
             {
                 QueryCurrentValue = queryForValue;
                 OnChangeAction = action;
-                //ValueChangeComparer = valueChangeComparer;
                 LastValue = QueryCurrentValue();
             }
 
@@ -112,42 +111,39 @@ namespace Unity.FPS.Gameplay
         {
             m_AmmoRatioChangeTracker.Update();
 
-            // visual smoke shooting out of the gun
-            float currentAmmoRatio = m_Weapon.CurrentAmmoRatio;
-            if (currentAmmoRatio != m_LastAmmoRatio)
-            {
-                m_OverheatMaterialPropertyBlock.SetColor("_EmissionColor",
-                    OverheatGradient.Evaluate(1f - currentAmmoRatio));
-
-                foreach (var data in m_OverheatingRenderersData)
-                {
-                    data.Renderer.SetPropertyBlock(m_OverheatMaterialPropertyBlock, data.MaterialIndex);
-                }
-
-                m_SteamVfxEmissionModule.rateOverTimeMultiplier = SteamVfxEmissionRateMax * (1f - currentAmmoRatio);
-            }
-            m_LastAmmoRatio = currentAmmoRatio;
-
             // cooling sound
             if (CoolingCellsSound)
             {
                 if (!m_AudioSource.isPlaying
-                    && currentAmmoRatio != 1
+                    && m_Weapon.CurrentAmmoRatio != 1
                     && m_Weapon.IsWeaponActive
                     && m_Weapon.IsCooling)
                 {
                     m_AudioSource.Play();
                 }
                 else if (m_AudioSource.isPlaying
-                         && (currentAmmoRatio == 1 || !m_Weapon.IsWeaponActive || !m_Weapon.IsCooling))
+                         && (m_Weapon.CurrentAmmoRatio == 1 || !m_Weapon.IsWeaponActive || !m_Weapon.IsCooling))
                 {
                     m_AudioSource.Stop();
                     return;
                 }
 
-                m_AudioSource.volume = AmmoToVolumeRatioCurve.Evaluate(1 - currentAmmoRatio);
+                m_AudioSource.volume = AmmoToVolumeRatioCurve.Evaluate(1 - m_Weapon.CurrentAmmoRatio);
             }
 
+        }
+
+        private void UpdateVisualSmoke(float currentAmmoRatio)
+        {
+            m_OverheatMaterialPropertyBlock.SetColor("_EmissionColor",
+                                OverheatGradient.Evaluate(1f - currentAmmoRatio));
+
+            foreach (var data in m_OverheatingRenderersData)
+            {
+                data.Renderer.SetPropertyBlock(m_OverheatMaterialPropertyBlock, data.MaterialIndex);
+            }
+
+            m_SteamVfxEmissionModule.rateOverTimeMultiplier = SteamVfxEmissionRateMax * (1f - currentAmmoRatio);
         }
     }
 }
