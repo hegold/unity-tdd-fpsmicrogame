@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using Unity.FPS.Game;
+using System;
 
 namespace Unity.FPS.Gameplay
 {
@@ -70,10 +71,47 @@ namespace Unity.FPS.Gameplay
             m_AudioSource = gameObject.AddComponent<AudioSource>();
             m_AudioSource.clip = CoolingCellsSound;
             m_AudioSource.outputAudioMixerGroup = AudioUtility.GetAudioGroup(AudioUtility.AudioGroups.WeaponOverheat);
+
+
+
+            m_AmmoRatioChangeTracker = new ValueChangeTracker<float>(
+                () => m_Weapon.CurrentAmmoRatio,
+                newAmmoRatio => Debug.LogFormat("Ammo ratio changed to: {0}", newAmmoRatio)
+            );
+    }
+
+        public class ValueChangeTracker<T> where T : IEquatable<T>
+        {
+            private readonly Func<T> QueryCurrentValue;
+            //private readonly Comparer<T> ValueChangeComparer;
+            private readonly Action<T> OnChangeAction;
+            private T LastValue;
+
+            public ValueChangeTracker(Func<T> queryForValue, Action<T> action)
+            {
+                QueryCurrentValue = queryForValue;
+                OnChangeAction = action;
+                //ValueChangeComparer = valueChangeComparer;
+                LastValue = QueryCurrentValue();
+            }
+
+            public void Update()
+            {
+                var newValue = QueryCurrentValue();
+                if (!LastValue.Equals(newValue))
+                {
+                    OnChangeAction(newValue);
+                    LastValue = newValue;
+                }
+            }
         }
+
+        private ValueChangeTracker<float> m_AmmoRatioChangeTracker;
 
         void Update()
         {
+            m_AmmoRatioChangeTracker.Update();
+
             // visual smoke shooting out of the gun
             float currentAmmoRatio = m_Weapon.CurrentAmmoRatio;
             if (currentAmmoRatio != m_LastAmmoRatio)
