@@ -135,8 +135,8 @@ namespace Unity.FPS.Gameplay
 
         private void UpdateVisualSmoke(float currentAmmoRatio)
         {
-            m_OverheatMaterialPropertyBlock.SetColor("_EmissionColor",
-                                OverheatGradient.Evaluate(1f - currentAmmoRatio));
+            m_OverheatMaterialPropertyBlock.SetEmissionColor(
+                GetOverheatColorFromAmmoRatio(currentAmmoRatio));
 
             foreach (var data in m_OverheatingRenderersData)
             {
@@ -144,6 +144,19 @@ namespace Unity.FPS.Gameplay
             }
 
             m_SteamVfxEmissionModule.rateOverTimeMultiplier = SteamVfxEmissionRateMax * (1f - currentAmmoRatio);
+        }
+
+        private Color GetOverheatColorFromAmmoRatio(float currentAmmoRatio)
+        {
+            return OverheatGradient.Evaluate(1f - currentAmmoRatio);
+        }
+    }
+
+    public static class OverheatExts
+    {
+        public static void SetEmissionColor(this MaterialPropertyBlock block, Color color)
+        {
+            block.SetColor("_EmissionColor", color);
         }
     }
 }
