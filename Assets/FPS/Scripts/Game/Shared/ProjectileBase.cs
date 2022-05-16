@@ -15,11 +15,16 @@ namespace Unity.FPS.Game
 
         public void Shoot(WeaponController controller)
         {
-            Owner = controller.Owner;
+            Shoot(controller.Owner, controller.MuzzleWorldVelocity, controller.CurrentCharge);
+        }
+
+        public void Shoot(GameObject owner, Vector3 muzzleWorldVelocity, float currentCharge)
+        {
+            Owner = owner;
             InitialPosition = transform.position;
             InitialDirection = transform.forward;
-            InheritedMuzzleVelocity = controller.MuzzleWorldVelocity;
-            InitialCharge = controller.CurrentCharge;
+            InheritedMuzzleVelocity = muzzleWorldVelocity;
+            InitialCharge = currentCharge;
 
             OnShoot?.Invoke();
         }
