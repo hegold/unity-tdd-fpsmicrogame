@@ -17,17 +17,41 @@ MonoBehaviour:
   IProxyPath: /usr/local/bin/iproxy
   XcrunPath: /usr/bin/xcrun
   MyTests:
-  - _selected: 1
+  - _selected: 0
     _testName: C:/dev/unity-tdd-fpsmicrogame/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _status: 0
     _isSuite: 1
     _parentName: 
-    _testCaseCount: 0
+    _testCaseCount: 1
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: NewAltUnityTest
+    _status: 0
+    _isSuite: 1
+    _parentName: C:/dev/unity-tdd-fpsmicrogame/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: NewAltUnityTest.Test
+    _status: 0
+    _isSuite: 0
+    _parentName: NewAltUnityTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/FPS/Editor/Tests/NewAltUnityTest.cs
     _testSelectedCount: 0
   - _selected: 1
     _testName: C:/dev/unity-tdd-fpsmicrogame/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
@@ -68,7 +92,7 @@ MonoBehaviour:
     _buildIndex: 3
   platform: 1
   StandaloneTarget: 5
-  RanInEditor: 0
+  RanInEditor: 1
   ScenePathDisplayed: 0
   InputVisualizer: 0
   ShowPopUp: 1
