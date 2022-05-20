@@ -56,11 +56,11 @@ namespace Unity.FPS.Gameplay
             IsJetpackUnlocked = IsJetpackUnlockedAtStart;
 
             m_PlayerCharacterController = GetComponent<PlayerCharacterController>();
-            DebugUtility.HandleErrorIfNullGetComponent<PlayerCharacterController, Jetpack>(m_PlayerCharacterController,
+            DebugUtility.LogErrorIfNullGetComponent<PlayerCharacterController, Jetpack>(m_PlayerCharacterController,
                 this, gameObject);
 
             m_InputHandler = GetComponent<PlayerInputHandler>();
-            DebugUtility.HandleErrorIfNullGetComponent<PlayerInputHandler, Jetpack>(m_InputHandler, this, gameObject);
+            DebugUtility.LogErrorIfNullGetComponent<PlayerInputHandler, Jetpack>(m_InputHandler, this, gameObject);
 
             CurrentFillRatio = 1f;
 

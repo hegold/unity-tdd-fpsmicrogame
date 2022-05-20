@@ -7,7 +7,7 @@ namespace Unity.FPS.Game
     {
         public GameObject Owner { get; private set; }
         public Vector3 InitialPosition { get; private set; }
-        public Vector3 InitialDirection { get; private set; }
+        public Vector3 InitialDirection { get; private set; } // Note: this is never used
         public Vector3 InheritedMuzzleVelocity { get; private set; }
         public float InitialCharge { get; private set; }
 

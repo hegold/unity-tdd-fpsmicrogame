@@ -21,7 +21,7 @@ namespace Unity.FPS.UI
         void Start()
         {
             m_WeaponsManager = GameObject.FindObjectOfType<PlayerWeaponsManager>();
-            DebugUtility.HandleErrorIfNullFindObject<PlayerWeaponsManager, CrosshairManager>(m_WeaponsManager, this);
+            DebugUtility.LogErrorIfNullFindObject<PlayerWeaponsManager, CrosshairManager>(m_WeaponsManager, this);
 
             OnWeaponChanged(m_WeaponsManager.GetActiveWeapon());
 
@@ -68,7 +68,7 @@ namespace Unity.FPS.UI
                 m_CrosshairDataDefault = newWeapon.CrosshairDataDefault;
                 m_CrosshairDataTarget = newWeapon.CrosshairDataTargetInSight;
                 m_CrosshairRectTransform = CrosshairImage.GetComponent<RectTransform>();
-                DebugUtility.HandleErrorIfNullGetComponent<RectTransform, CrosshairManager>(m_CrosshairRectTransform,
+                DebugUtility.LogErrorIfNullGetComponent<RectTransform, CrosshairManager>(m_CrosshairRectTransform,
                     this, CrosshairImage.gameObject);
             }
             else

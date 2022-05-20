@@ -24,7 +24,7 @@ namespace Unity.FPS.Gameplay
         void Start()
         {
             m_Weapon = GetComponent<WeaponController>();
-            DebugUtility.HandleErrorIfNullGetComponent<WeaponController, WeaponFuelCellHandler>(m_Weapon, this,
+            DebugUtility.LogErrorIfNullGetComponent<WeaponController, WeaponFuelCellHandler>(m_Weapon, this,
                 gameObject);
 
             m_FuelCellsCooled = new bool[FuelCells.Length];

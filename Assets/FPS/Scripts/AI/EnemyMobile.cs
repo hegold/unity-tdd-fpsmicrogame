@@ -40,7 +40,7 @@ namespace Unity.FPS.AI
         void Start()
         {
             m_EnemyController = GetComponent<EnemyController>();
-            DebugUtility.HandleErrorIfNullGetComponent<EnemyController, EnemyMobile>(m_EnemyController, this,
+            DebugUtility.LogErrorIfNullGetComponent<EnemyController, EnemyMobile>(m_EnemyController, this,
                 gameObject);
 
             m_EnemyController.onAttack += OnAttack;
@@ -54,7 +54,7 @@ namespace Unity.FPS.AI
 
             // adding a audio source to play the movement sound on it
             m_AudioSource = GetComponent<AudioSource>();
-            DebugUtility.HandleErrorIfNullGetComponent<AudioSource, EnemyMobile>(m_AudioSource, this, gameObject);
+            DebugUtility.LogErrorIfNullGetComponent<AudioSource, EnemyMobile>(m_AudioSource, this, gameObject);
             m_AudioSource.clip = MovementSound;
             m_AudioSource.Play();
         }

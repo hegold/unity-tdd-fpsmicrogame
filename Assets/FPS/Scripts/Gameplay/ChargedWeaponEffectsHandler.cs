@@ -93,11 +93,11 @@ namespace Unity.FPS.Gameplay
         public void FindReferences()
         {
             m_DiskOrbitParticle = ParticleInstance.GetComponent<ParticleSystem>();
-            DebugUtility.HandleErrorIfNullGetComponent<ParticleSystem, ChargedWeaponEffectsHandler>(m_DiskOrbitParticle,
+            DebugUtility.LogErrorIfNullGetComponent<ParticleSystem, ChargedWeaponEffectsHandler>(m_DiskOrbitParticle,
                 this, ParticleInstance.gameObject);
 
             m_WeaponController = GetComponent<WeaponController>();
-            DebugUtility.HandleErrorIfNullGetComponent<WeaponController, ChargedWeaponEffectsHandler>(
+            DebugUtility.LogErrorIfNullGetComponent<WeaponController, ChargedWeaponEffectsHandler>(
                 m_WeaponController, this, gameObject);
 
             m_VelocityOverTimeModule = m_DiskOrbitParticle.velocityOverLifetime;

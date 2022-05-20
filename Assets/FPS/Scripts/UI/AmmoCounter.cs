@@ -73,7 +73,7 @@ namespace Unity.FPS.UI
 
             Reload.gameObject.SetActive(false);
             m_PlayerWeaponsManager = FindObjectOfType<PlayerWeaponsManager>();
-            DebugUtility.HandleErrorIfNullFindObject<PlayerWeaponsManager, AmmoCounter>(m_PlayerWeaponsManager, this);
+            DebugUtility.LogErrorIfNullFindObject<PlayerWeaponsManager, AmmoCounter>(m_PlayerWeaponsManager, this);
 
             WeaponIndexText.text = (WeaponCounterIndex + 1).ToString();
 

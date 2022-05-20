@@ -16,7 +16,7 @@ namespace Unity.FPS.Gameplay
         void OnEnable()
         {
             m_ProjectileBase = GetComponent<ProjectileBase>();
-            DebugUtility.HandleErrorIfNullGetComponent<ProjectileBase, ProjectileChargeParameters>(m_ProjectileBase,
+            DebugUtility.LogErrorIfNullGetComponent<ProjectileBase, ProjectileChargeParameters>(m_ProjectileBase,
                 this, gameObject);
 
             m_ProjectileBase.OnShoot += OnShoot;

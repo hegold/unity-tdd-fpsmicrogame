@@ -26,9 +26,9 @@ namespace Unity.FPS.Gameplay
         protected virtual void Start()
         {
             PickupRigidbody = GetComponent<Rigidbody>();
-            DebugUtility.HandleErrorIfNullGetComponent<Rigidbody, Pickup>(PickupRigidbody, this, gameObject);
+            DebugUtility.LogErrorIfNullGetComponent<Rigidbody, Pickup>(PickupRigidbody, this, gameObject);
             m_Collider = GetComponent<Collider>();
-            DebugUtility.HandleErrorIfNullGetComponent<Collider, Pickup>(m_Collider, this, gameObject);
+            DebugUtility.LogErrorIfNullGetComponent<Collider, Pickup>(m_Collider, this, gameObject);
 
             // ensure the physics setup is a kinematic rigidbody trigger
             PickupRigidbody.isKinematic = true;

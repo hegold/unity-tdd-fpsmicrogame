@@ -4,7 +4,7 @@ namespace Unity.FPS.Game
 {
     public static class DebugUtility
     {
-        public static void HandleErrorIfNullGetComponent<TO, TS>(Component component, Component source,
+        public static void LogErrorIfNullGetComponent<TO, TS>(Component component, Component source,
             GameObject onObject)
         {
 #if UNITY_EDITOR
@@ -17,7 +17,7 @@ namespace Unity.FPS.Game
 #endif
         }
 
-        public static void HandleErrorIfNullFindObject<TO, TS>(UnityEngine.Object obj, Component source)
+        public static void LogErrorIfNullFindObject<TO, TS>(UnityEngine.Object obj, Component source)
         {
 #if UNITY_EDITOR
             if (obj == null)
@@ -29,7 +29,7 @@ namespace Unity.FPS.Game
 #endif
         }
 
-        public static void HandleErrorIfNoComponentFound<TO, TS>(int count, Component source, GameObject onObject)
+        public static void LogErrorIfNoComponentFound<TO, TS>(int count, Component source, GameObject onObject)
         {
 #if UNITY_EDITOR
             if (count == 0)
@@ -41,7 +41,7 @@ namespace Unity.FPS.Game
 #endif
         }
 
-        public static void HandleWarningIfDuplicateObjects<TO, TS>(int count, Component source, GameObject onObject)
+        public static void LogWarningIfDuplicateObjects<TO, TS>(int count, Component source, GameObject onObject)
         {
 #if UNITY_EDITOR
             if (count > 1)

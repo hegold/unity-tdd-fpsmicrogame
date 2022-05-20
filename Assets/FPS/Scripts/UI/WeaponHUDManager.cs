@@ -19,7 +19,7 @@ namespace Unity.FPS.UI
         void Start()
         {
             m_PlayerWeaponsManager = FindObjectOfType<PlayerWeaponsManager>();
-            DebugUtility.HandleErrorIfNullFindObject<PlayerWeaponsManager, WeaponHUDManager>(m_PlayerWeaponsManager,
+            DebugUtility.LogErrorIfNullFindObject<PlayerWeaponsManager, WeaponHUDManager>(m_PlayerWeaponsManager,
                 this);
 
             WeaponController activeWeapon = m_PlayerWeaponsManager.GetActiveWeapon();
@@ -38,7 +38,7 @@ namespace Unity.FPS.UI
         {
             GameObject ammoCounterInstance = Instantiate(AmmoCounterPrefab, AmmoPanel);
             AmmoCounter newAmmoCounter = ammoCounterInstance.GetComponent<AmmoCounter>();
-            DebugUtility.HandleErrorIfNullGetComponent<AmmoCounter, WeaponHUDManager>(newAmmoCounter, this,
+            DebugUtility.LogErrorIfNullGetComponent<AmmoCounter, WeaponHUDManager>(newAmmoCounter, this,
                 ammoCounterInstance.gameObject);
 
             newAmmoCounter.Initialize(newWeapon, weaponIndex);

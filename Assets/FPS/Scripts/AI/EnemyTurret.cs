@@ -42,11 +42,11 @@ namespace Unity.FPS.AI
         void Start()
         {
             m_Health = GetComponent<Health>();
-            DebugUtility.HandleErrorIfNullGetComponent<Health, EnemyTurret>(m_Health, this, gameObject);
+            DebugUtility.LogErrorIfNullGetComponent<Health, EnemyTurret>(m_Health, this, gameObject);
             m_Health.OnDamaged += OnDamaged;
 
             m_EnemyController = GetComponent<EnemyController>();
-            DebugUtility.HandleErrorIfNullGetComponent<EnemyController, EnemyTurret>(m_EnemyController, this,
+            DebugUtility.LogErrorIfNullGetComponent<EnemyController, EnemyTurret>(m_EnemyController, this,
                 gameObject);
 
             m_EnemyController.onDetectedTarget += OnDetectedTarget;

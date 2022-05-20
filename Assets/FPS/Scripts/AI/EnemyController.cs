@@ -121,24 +121,24 @@ namespace Unity.FPS.AI
         void Start()
         {
             m_EnemyManager = FindObjectOfType<EnemyManager>();
-            DebugUtility.HandleErrorIfNullFindObject<EnemyManager, EnemyController>(m_EnemyManager, this);
+            DebugUtility.LogErrorIfNullFindObject<EnemyManager, EnemyController>(m_EnemyManager, this);
 
             m_ActorsManager = FindObjectOfType<ActorsManager>();
-            DebugUtility.HandleErrorIfNullFindObject<ActorsManager, EnemyController>(m_ActorsManager, this);
+            DebugUtility.LogErrorIfNullFindObject<ActorsManager, EnemyController>(m_ActorsManager, this);
 
             m_EnemyManager.RegisterEnemy(this);
 
             m_Health = GetComponent<Health>();
-            DebugUtility.HandleErrorIfNullGetComponent<Health, EnemyController>(m_Health, this, gameObject);
+            DebugUtility.LogErrorIfNullGetComponent<Health, EnemyController>(m_Health, this, gameObject);
 
             m_Actor = GetComponent<Actor>();
-            DebugUtility.HandleErrorIfNullGetComponent<Actor, EnemyController>(m_Actor, this, gameObject);
+            DebugUtility.LogErrorIfNullGetComponent<Actor, EnemyController>(m_Actor, this, gameObject);
 
             NavMeshAgent = GetComponent<NavMeshAgent>();
             m_SelfColliders = GetComponentsInChildren<Collider>();
 
             m_GameFlowManager = FindObjectOfType<GameFlowManager>();
-            DebugUtility.HandleErrorIfNullFindObject<GameFlowManager, EnemyController>(m_GameFlowManager, this);
+            DebugUtility.LogErrorIfNullFindObject<GameFlowManager, EnemyController>(m_GameFlowManager, this);
 
             // Subscribe to damage & death actions
             m_Health.OnDie += OnDie;
@@ -150,9 +150,9 @@ namespace Unity.FPS.AI
             weapon.ShowWeapon(true);
 
             var detectionModules = GetComponentsInChildren<DetectionModule>();
-            DebugUtility.HandleErrorIfNoComponentFound<DetectionModule, EnemyController>(detectionModules.Length, this,
+            DebugUtility.LogErrorIfNoComponentFound<DetectionModule, EnemyController>(detectionModules.Length, this,
                 gameObject);
-            DebugUtility.HandleWarningIfDuplicateObjects<DetectionModule, EnemyController>(detectionModules.Length,
+            DebugUtility.LogWarningIfDuplicateObjects<DetectionModule, EnemyController>(detectionModules.Length,
                 this, gameObject);
             // Initialize detection module
             DetectionModule = detectionModules[0];
@@ -161,7 +161,7 @@ namespace Unity.FPS.AI
             onAttack += DetectionModule.OnAttack;
 
             var navigationModules = GetComponentsInChildren<NavigationModule>();
-            DebugUtility.HandleWarningIfDuplicateObjects<DetectionModule, EnemyController>(detectionModules.Length,
+            DebugUtility.LogWarningIfDuplicateObjects<DetectionModule, EnemyController>(detectionModules.Length,
                 this, gameObject);
             // Override navmesh agent data
             if (navigationModules.Length > 0)
@@ -447,7 +447,7 @@ namespace Unity.FPS.AI
             if (m_Weapons == null)
             {
                 m_Weapons = GetComponentsInChildren<WeaponController>();
-                DebugUtility.HandleErrorIfNoComponentFound<WeaponController, EnemyController>(m_Weapons.Length, this,
+                DebugUtility.LogErrorIfNoComponentFound<WeaponController, EnemyController>(m_Weapons.Length, this,
                     gameObject);
 
                 for (int i = 0; i < m_Weapons.Length; i++)
@@ -467,7 +467,7 @@ namespace Unity.FPS.AI
                 SetCurrentWeapon(0);
             }
 
-            DebugUtility.HandleErrorIfNullGetComponent<WeaponController, EnemyController>(m_CurrentWeapon, this,
+            DebugUtility.LogErrorIfNullGetComponent<WeaponController, EnemyController>(m_CurrentWeapon, this,
                 gameObject);
 
             return m_CurrentWeapon;

@@ -40,11 +40,11 @@ namespace Unity.FPS.UI
             m_IsFeatureDisable = false;
 
             var gameMenuManager = GetComponent<InGameMenuManager>();
-            DebugUtility.HandleErrorIfNullGetComponent<InGameMenuManager, TakeScreenshot>(gameMenuManager, this,
+            DebugUtility.LogErrorIfNullGetComponent<InGameMenuManager, TakeScreenshot>(gameMenuManager, this,
                 gameObject);
 
             m_MenuCanvas = gameMenuManager.MenuRoot.GetComponent<CanvasGroup>();
-            DebugUtility.HandleErrorIfNullGetComponent<CanvasGroup, TakeScreenshot>(m_MenuCanvas, this,
+            DebugUtility.LogErrorIfNullGetComponent<CanvasGroup, TakeScreenshot>(m_MenuCanvas, this,
                 gameMenuManager.MenuRoot.gameObject);
 
             LoadScreenshot();
