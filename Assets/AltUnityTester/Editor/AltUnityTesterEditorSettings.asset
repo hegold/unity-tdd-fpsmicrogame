@@ -17,40 +17,40 @@ MonoBehaviour:
   IProxyPath: /usr/local/bin/iproxy
   XcrunPath: /usr/bin/xcrun
   MyTests:
-  - _selected: 0
+  - _selected: 1
     _testName: C:/dev/unity-tdd-fpsmicrogame/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
-    _status: 0
+    _status: 1
     _isSuite: 1
     _parentName: 
     _testCaseCount: 1
-    _foldOut: 0
+    _foldOut: 1
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 0
-  - _selected: 0
+    _testSelectedCount: 1
+  - _selected: 1
     _testName: NewAltUnityTest
-    _status: 0
+    _status: 1
     _isSuite: 1
     _parentName: C:/dev/unity-tdd-fpsmicrogame/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 1
-    _foldOut: 0
+    _foldOut: 1
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 0
-  - _selected: 0
-    _testName: NewAltUnityTest.Test
-    _status: 0
+    _testSelectedCount: 1
+  - _selected: 1
+    _testName: NewAltUnityTest.TestStartButton
+    _status: 1
     _isSuite: 0
     _parentName: NewAltUnityTest
     _testCaseCount: 1
-    _foldOut: 0
+    _foldOut: 1
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 0
+    _testDuration: 0.6554402
     path: Assets/FPS/Editor/Tests/NewAltUnityTest.cs
     _testSelectedCount: 0
   - _selected: 1
@@ -98,6 +98,6 @@ MonoBehaviour:
   ShowPopUp: 1
   BuildLocationPath: 
   LatestInspectorVersion: 1.4.0
-  ShowInsectorPopUpInEditor: 1
+  ShowInsectorPopUpInEditor: 0
   AltUnityTesterPort: 13000
   KeepAUTSymbolDefined: 0
