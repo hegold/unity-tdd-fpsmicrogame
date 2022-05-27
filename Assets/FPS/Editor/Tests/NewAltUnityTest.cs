@@ -1,5 +1,7 @@
 using NUnit.Framework;
 using Altom.AltUnityDriver;
+using Unity.FPS.Gameplay;
+using System.Linq;
 
 public class NewAltUnityTest
 {
@@ -24,6 +26,11 @@ public class NewAltUnityTest
         driver.LoadScene("IntroMenu");
         driver.FindObject(By.NAME, "StartButton").Click();
         driver.WaitForCurrentSceneToBe("MainScene");
+        //driver.WaitForObject(By.COMPONENT, "");
+        //driver.HoldButton(new AltUnityVector2(), 10.0f);
+        //driver.PressKey(AltUnityKeyCode.W, duration: 10.0f);
+        var obj = driver.FindObject(By.COMPONENT, "Unity.FPS.Gameplay.PlayerWeaponsManager");
+        obj.CallComponentMethod<string>("Unity.FPS.Gameplay.PlayerWeaponsManager", "HACK_ShootWeapon", new object[0]);
     }
 
 }

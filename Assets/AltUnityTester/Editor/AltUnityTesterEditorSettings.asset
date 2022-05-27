@@ -19,7 +19,7 @@ MonoBehaviour:
   MyTests:
   - _selected: 1
     _testName: C:/dev/unity-tdd-fpsmicrogame/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
-    _status: 1
+    _status: -1
     _isSuite: 1
     _parentName: 
     _testCaseCount: 1
@@ -31,11 +31,11 @@ MonoBehaviour:
     _testSelectedCount: 1
   - _selected: 1
     _testName: NewAltUnityTest
-    _status: 1
+    _status: -1
     _isSuite: 1
     _parentName: C:/dev/unity-tdd-fpsmicrogame/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 1
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -43,14 +43,28 @@ MonoBehaviour:
     _testSelectedCount: 1
   - _selected: 1
     _testName: NewAltUnityTest.TestStartButton
-    _status: 1
+    _status: -1
     _isSuite: 0
     _parentName: NewAltUnityTest
     _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: 
-    _testStackTrace: 
-    _testDuration: 0.6554402
+    _foldOut: 0
+    _testResultMessage: 'Altom.AltUnityDriver.UnknownErrorException : Could not load
+      the file ''Unity.FPS.Gameplay''.'
+    _testStackTrace: "  at Altom.AltUnityDriver.Commands.DriverCommunicationWebSocket.handleErrors
+      (Altom.AltUnityDriver.Commands.CommandError error) [0x003c0] in C:\\dev\\unity-tdd-fpsmicrogame\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\DriverCommunicationWebSocket.cs:248
+      \r\n  at Altom.AltUnityDriver.Commands.DriverCommunicationWebSocket.Recvall[T]
+      (Altom.AltUnityDriver.Commands.CommandParams param) [0x0016b] in C:\\dev\\unity-tdd-fpsmicrogame\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\DriverCommunicationWebSocket.cs:121
+      \r\n  at Altom.AltUnityDriver.Commands.AltUnityCallComponentMethod`1[T].Execute
+      () [0x00013] in C:\\dev\\unity-tdd-fpsmicrogame\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\ObjectCommands\\AltUnityCallComponentMethod.cs:21
+      \r\n  at Altom.AltUnityDriver.AltUnityObject.CallComponentMethod[T] (System.String
+      componentName, System.String methodName, System.Object[] parameters, System.String[]
+      typeOfParameters, System.String assemblyName) [0x00001] in C:\\dev\\unity-tdd-fpsmicrogame\\Assets\\AltUnityTester\\AltUnityDriver\\AltUnity\\AltUnityObject.cs:65
+      \r\n  at NewAltUnityTest.TestStartButton () [0x00074] in C:\\dev\\unity-tdd-fpsmicrogame\\Assets\\FPS\\Editor\\Tests\\NewAltUnityTest.cs:33
+      \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
+      at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
+      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
+      culture) [0x0006a] in <6073cf49ed704e958b8a66d540dea948>:0 "
+    _testDuration: 1.3471019
     path: Assets/FPS/Editor/Tests/NewAltUnityTest.cs
     _testSelectedCount: 0
   - _selected: 1
@@ -92,7 +106,7 @@ MonoBehaviour:
     _buildIndex: 3
   platform: 1
   StandaloneTarget: 5
-  RanInEditor: 1
+  RanInEditor: 0
   ScenePathDisplayed: 0
   InputVisualizer: 0
   ShowPopUp: 1
