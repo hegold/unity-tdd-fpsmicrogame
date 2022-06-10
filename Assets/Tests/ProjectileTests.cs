@@ -52,8 +52,6 @@ public class ProjectileTests
         var obj = GameObject.Instantiate(prefab, Vector3.zero, Quaternion.identity);
         var projectile = obj.GetComponent<ProjectileBase>();
 
-        yield return new WaitForSeconds(1);
-
         projectile.Shoot(fakePlayer, Vector3.right, 1.0f);
 
         Assert.IsNotNull(obj);
