@@ -28,7 +28,7 @@ public class ProjectileTests
     // A test with the [RequiresPlayMode] tag ensures that the test is always run inside PlayMode.
     [UnityTest]
     [RequiresPlayMode]
-    public IEnumerator NewTestScriptInPlayModeWithEnumeratorPasses()
+    public IEnumerator Projectile_WhenFired_MovesForwards()
     {
         // array of collides to ignore
         // PlayerWeaponsManager - weapon camra transform
@@ -48,22 +48,23 @@ public class ProjectileTests
         weaponsManager.WeaponParentSocket = fakePlayer.transform;
         weaponsManager.WeaponCamera = camera;
 
+
         GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/FPS/Prefabs/Projectiles/Projectile_Blaster.prefab");
         var obj = GameObject.Instantiate(prefab, Vector3.zero, Quaternion.identity);
         var projectile = obj.GetComponent<ProjectileBase>();
+        // Direction of projectile hopefully
+        projectile.transform.forward = Vector3.right;
 
-        projectile.Shoot(fakePlayer, Vector3.right, 1.0f);
+        projectile.Shoot(fakePlayer, Vector3.zero, 1.0f);
 
         Assert.IsNotNull(obj);
 
-        // TODO: Extension method for Vec3 compare
-        //Assert.AreEqual(Vector3.right, obj);
+        var initialPos = obj.transform.position;
 
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
         yield return null;
 
+        var newPos = obj.transform.position;
+        Assert.Greater(newPos.x, initialPos.x);
         
-
     }
 }
