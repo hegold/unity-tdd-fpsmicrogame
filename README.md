@@ -43,3 +43,36 @@ Features to test:
   - Perf
   - Is fun
   
+Weapon system:
+- equipped weapon slot
+- select weapon in slot
+- set of available weapons
+- accept input and pass to weapon
+
+Weapon:
+- reload
+- fire
+- muzzle location and vector
+- projectile type
+- ammo capacity
+- current ammo
+- reserve ammo
+- charge?
+- overheat
+- does ammor refill?
+- fire rate
+- maybe types e.g. projtcile/beam
+- Name
+- HUD icon
+- 3d model
+- sounds
+- vfx
+
+
+Projectile:
+ - properties e,g. speed, drop
+
+
+
+V1:
+- a weapon that when fired creates a projectile
